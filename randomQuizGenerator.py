@@ -26,7 +26,7 @@ for quizNum in range(35):
 
     # Next, shuffle the order of the states:
     states = list(capitals.keys())  # keys = state names; values = capital names
-    random.shuffle(states)
+    random.shuffle(states)  # Randomize the order of states
 
     # Loop through all 50 states and make a question for each:
     for questionNum in range(50):
@@ -41,10 +41,15 @@ for quizNum in range(35):
 
         # Write question and answer options to the quiz file:
     quizFile.write(f'{questionNum + 1}. What is the capital of {states[questionNum]}?\n')
+    #quizFile.write('%s. What is the capital of %s?\n' % (questionNum + 1, states[questionNum]))
+
     for i in range(4):
         quizFile.write(f"   {'ABCD'[i]}. { answerOptions[i]}\n")
+        #quizFile.write('   %s. %s\n' % ('ABCD' [i], answerOptions[i]))
         quizFile.write('\n')
+
         # Write answer key to a file:
         answerKeyFile.write(f"{questionNum + 1}.{'ABCD'[answerOptions.index(correctAnswer)]}")
+        #answerKeyFile.write('%s. %s\n' % (questionNum + 1, 'ABCD'[answerOptions.index(correctAnswer)])
     quizFile.close()
     answerKeyFile.close()
