@@ -6,22 +6,7 @@ import random
 
 # Below is the quiz data. This version is just U.S. states w/ capitals.
 
-capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix',
-'Arkansas': 'Little Rock', 'California': 'Sacramento', 'Colorado': 'Denver',
-'Connecticut': 'Hartford', 'Delaware': 'Dover', 'Florida': 'Tallahassee',
-'Georgia': 'Atlanta', 'Hawaii': 'Honolulu', 'Idaho': 'Boise', 'Illinois': 'Springfield',
-'Indiana': 'Indianapolis', 'Iowa': 'Des Moines', 'Kansas': 'Topeka',
-'Kentucky': 'Frankfort', 'Louisiana': 'Baton Rouge', 'Maine': 'Augusta',
-'Maryland': 'Annapolis', 'Massachusetts': 'Boston', 'Michigan': 'Lansing',
-'Minnesota': 'Saint Paul', 'Mississippi': 'Jackson', 'Missouri': 'Jefferson City',
-'Montana': 'Helena', 'Nebraska': 'Lincoln', 'Nevada': 'Carson City',
-'New Hampshire': 'Concord', 'New Jersey': 'Trenton', 'New Mexico': 'Santa Fe',
-'New York': 'Albany', 'North Carolina': 'Raleigh', 'North Dakota': 'Bismarck',
-'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City', 'Oregon': 'Salem',
-'Pennsylvania': 'Harrisburg', 'Rhode Island': 'Providence', 'South Carolina': 'Columbia',
-'South Dakota': 'Pierre', 'Tennessee': 'Nashville', 'Texas': 'Austin', 'Utah':
-'Salt Lake City', 'Vermont': 'Montpelier', 'Virginia': 'Richmond', 'Washington':
-'Olympia', 'West Virginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
+capitals = {'Alabama': 'Montgomery', 'Alaska': 'Juneau', 'Arizona': 'Phoenix', 'Arkansas': 'Little Rock', 'California': 'Sacramento', 'Colorado': 'Denver', 'Connecticut': 'Hartford', 'Delaware': 'Dover', 'Florida': 'Tallahassee', 'Georgia': 'Atlanta', 'Hawaii': 'Honolulu', 'Idaho': 'Boise', 'Illinois': 'Springfield', 'Indiana': 'Indianapolis', 'Iowa': 'Des Moines', 'Kansas': 'Topeka', 'Kentucky': 'Frankfort', 'Louisiana': 'Baton Rouge', 'Maine': 'Augusta', 'Maryland': 'Annapolis', 'Massachusetts': 'Boston', 'Michigan': 'Lansing', 'Minnesota': 'Saint Paul', 'Mississippi': 'Jackson', 'Missouri': 'Jefferson City', 'Montana': 'Helena', 'Nebraska': 'Lincoln', 'Nevada': 'Carson City', 'New Hampshire': 'Concord', 'New Jersey': 'Trenton', 'New Mexico': 'Santa Fe', 'New York': 'Albany', 'North Carolina': 'Raleigh', 'North Dakota': 'Bismarck', 'Ohio': 'Columbus', 'Oklahoma': 'Oklahoma City', 'Oregon': 'Salem', 'Pennsylvania': 'Harrisburg', 'Rhode Island': 'Providence', 'South Carolina': 'Columbia', 'South Dakota': 'Pierre', 'Tennessee': 'Nashville', 'Texas': 'Austin', 'Utah': 'Salt Lake City', 'Vermont': 'Montpelier', 'Virginia': 'Richmond', 'Washington': 'Olympia', 'West Virginia': 'Charleston', 'Wisconsin': 'Madison', 'Wyoming': 'Cheyenne'}
 
 # Next, we generate 35 quiz files of randomized questions:
 for quizNum in range(35):
@@ -49,13 +34,11 @@ for quizNum in range(35):
         random.shuffle(answerOptions)
 
         # Write question and answer options to the quiz file:
-        quizFile.write(f'{questionNum + 1}. What is the capital of
-        {states[questionNum]}?\n')
-        for i in range(4):
-            quizFile.write(f"   {'ABCD'[i]}. { answerOptions[i]}\n")
-            quizFile.write('\n')
-            # Write answer key to a file:
-            answerKeyFile.write(f"{questionNum + 1}.
-            {'ABCD'[answerOptions.index(correctAnswer)]}")
-        quizFile.close()
-        answerKeyFile.close()
+    quizFile.write(f'{questionNum + 1}. What is the capital of {states[questionNum]}?\n')
+    for i in range(4):
+        quizFile.write(f"   {'ABCD'[i]}. { answerOptions[i]}\n")
+        quizFile.write('\n')
+        # Write answer key to a file:
+        answerKeyFile.write(f"{questionNum + 1}.{'ABCD'[answerOptions.index(correctAnswer)]}")
+    quizFile.close()
+    answerKeyFile.close()
